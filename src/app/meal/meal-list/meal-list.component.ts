@@ -13,14 +13,18 @@ export class MealListComponent implements OnInit {
   meals: Meal[];
   meal: Meal;
   constructor(
-      private mealService: MealService,
-      private route: ActivatedRoute
+      private mealService: MealService
   ) { }
 
   getMeals(): void {
-    this.mealService
-        .getMeals()
-        .then(meals => this.meals = meals);
+    this.mealService.getMeals()
+        .subscribe(
+          meals => {
+            this.meals = meals;
+          },
+        error => {
+            console.log(error);
+        });
   }
 
   ngOnInit() {

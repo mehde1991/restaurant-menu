@@ -1,27 +1,30 @@
-import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import {Injectable} from '@angular/core';
+import {Http, Response} from '@angular/http';
 
-import 'rxjs/add/operator/toPromise';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
-import { Meal } from './meal.model';
+import {Meal} from './meal.model';
 
 @Injectable()
 export class MealService {
 
-    private headers = new Headers({'Content-Type': 'application/json'});
-    private mealsUrl = 'api/meal';
+  private mealsUrl = 'api/meal';
 
-    constructor(private http: Http) { }
+  constructor(private http: Http) {
+  }
 
-    getMeals(): Promise<Meal[]> {
-        return this.http.get(this.mealsUrl)
-            .toPromise()
-            .then(response => response.json().data as Meal[])
-            .catch(this.handleError);
-    }
+  getMeals(): Observable<Meal[]> {
+    return this.http.get(this.mealsUrl)
+      .map((res: Response) => res.json().data as Meal[])
+      .catch(this.handleError);
+  }
 
-    private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
-    }
+  private handleError(error: any): Observable<any> {
+    const errMsg = (error.message) ? error.message : error.status ?
+      `${error.status} - ${error.statusText}` : 'Server error';
+    window.alert(`An error occurred: ${errMsg}`);
+    return Observable.throw(errMsg);
+  }
 }

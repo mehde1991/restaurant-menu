@@ -1,6 +1,6 @@
 <ul class="category-list">
   <li *ngFor="let category of categories" class="category-list__item">
-    <a href="#" class="category-list__link">
+    <a class="category-list__link" (click)="filterMeals(category)">
       {{category.title}}
     </a>
   </li>

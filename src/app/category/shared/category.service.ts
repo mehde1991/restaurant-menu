@@ -1,27 +1,40 @@
-import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import {Injectable} from '@angular/core';
+import {Http, Response} from '@angular/http';
 
-import 'rxjs/add/operator/toPromise';
+import {Category} from './category.model';
 
-import { Category } from './category.model';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+
 
 @Injectable()
 export class CategoryService {
+  private categoriesUrl = 'api/categories';
+  private categories: Category[] = [];
 
-    private headers = new Headers({'Content-Type': 'application/json'});
-    private categoriesUrl = 'api/categories';
+  constructor(private http: Http) {
+  }
 
-    constructor(private http: Http) { }
+  getCategories(): Observable<Category[]> {
+    return this.http.get(this.categoriesUrl)
+      .map((res: Response) => res.json().data as Category[])
+      .catch(this.handleError);
+  }
 
-    getCategories(): Promise<Category[]> {
-        return this.http.get(this.categoriesUrl)
-            .toPromise()
-            .then(response => response.json().data as Category[])
-            .catch(this.handleError);
+  getCategory(id: number): Category {
+    for (let i = 0; i < this.categories.length; i++) {
+      if (this.categories[i].id === id) {
+        return this.categories[i];
+      }
     }
+    return null;
+  }
 
-    private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
-    }
+  private handleError(error: any): Observable<any> {
+    const errMsg = (error.message) ? error.message : error.status ?
+      `${error.status} - ${error.statusText}` : 'Server error';
+    window.alert(`An error occurred: ${errMsg}`);
+    return Observable.throw(errMsg);
+  }
 }
