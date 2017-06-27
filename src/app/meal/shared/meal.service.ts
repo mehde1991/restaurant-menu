@@ -11,30 +11,24 @@ import {Meal} from './meal.model';
 @Injectable()
 export class MealService {
 
-  private mealsUrl = 'api/meal';
-  private meals: Meal[];
+    private mealsUrl = 'api/meal';
 
-  constructor(private http: Http) {
-  }
+    constructor(private http:Http) {
+    }
 
-  // getMeals(categoryId: number): Observable<Meal[]> {
-  //   return this.http.get(this.mealsUrl)
-  //   .map(res => {
-  //     (res.json().data as Meal[]).filter(meal => meal.categoryId === categoryId);
-  //   })
-  //     .catch(this.handleError);
-  // }
+    getMeals(categoryId:number):Observable<Meal[]> {
+        return this.http.get(this.mealsUrl)
+            .map(res => {
+                return (res.json().data as Meal[])
+                    .filter(meal => !categoryId || meal.categoryId === categoryId);
+            })
+            .catch(this.handleError);
+    }
 
-  getMeals(): Observable<Meal[]> {
-    return this.http.get(this.mealsUrl)
-      .map(res => res.json().data as Meal[])
-      .catch(this.handleError);
-  }
-
-  private handleError(error: any): Observable<any> {
-    const errMsg = (error.message) ? error.message : error.status ?
-      `${error.status} - ${error.statusText}` : 'Server error';
-    window.alert(`An error occurred: ${errMsg}`);
-    return Observable.throw(errMsg);
-  }
+    private handleError(error:any):Observable<any> {
+        const errMsg = (error.message) ? error.message : error.status ?
+            `${error.status} - ${error.statusText}` : 'Server error';
+        window.alert(`An error occurred: ${errMsg}`);
+        return Observable.throw(errMsg);
+    }
 }
