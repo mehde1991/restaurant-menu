@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
-import { Meal } from '../shared/meal.model';
-import { MealService } from '../shared/meal.service';
+import {Meal} from '../shared/meal.model';
+import {MealService} from '../shared/meal.service';
+
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-meal-list',
@@ -10,20 +13,31 @@ import { MealService } from '../shared/meal.service';
   styleUrls: ['./meal-list.component.scss']
 })
 export class MealListComponent implements OnInit {
+  // meals: Observable<Meal[]>;
   meals: Meal[];
   meal: Meal;
-  constructor(
-      private mealService: MealService
-  ) { }
+
+  constructor(private mealService: MealService,
+              private route: ActivatedRoute) {
+  }
+
+  // getMeals(): void {
+  //   this.route
+  //     .queryParams
+  //     .subscribe(params => {
+  //       let categoryId: number = params['category'];
+  //       this.meals = this.mealService.getMeals(categoryId);
+  //     })
+  // }
 
   getMeals(): void {
     this.mealService.getMeals()
-        .subscribe(
-          meals => {
-            this.meals = meals;
-          },
+      .subscribe(
+        meals => {
+          this.meals = meals;
+        },
         error => {
-            console.log(error);
+          console.log(error);
         });
   }
 

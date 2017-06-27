@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {Http} from '@angular/http';
 
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/catch';
 
 import {Meal} from './meal.model';
@@ -11,13 +12,22 @@ import {Meal} from './meal.model';
 export class MealService {
 
   private mealsUrl = 'api/meal';
+  private meals: Meal[];
 
   constructor(private http: Http) {
   }
 
+  // getMeals(categoryId: number): Observable<Meal[]> {
+  //   return this.http.get(this.mealsUrl)
+  //   .map(res => {
+  //     (res.json().data as Meal[]).filter(meal => meal.categoryId === categoryId);
+  //   })
+  //     .catch(this.handleError);
+  // }
+
   getMeals(): Observable<Meal[]> {
     return this.http.get(this.mealsUrl)
-      .map((res: Response) => res.json().data as Meal[])
+      .map(res => res.json().data as Meal[])
       .catch(this.handleError);
   }
 
