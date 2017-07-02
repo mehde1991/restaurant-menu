@@ -8,7 +8,7 @@ export class CartService {
   cart: Cart = new Cart();
 
   addMeal(meal: Meal): CartItem {
-    let item: CartItem = this.findItem(meal.id);
+    let item: CartItem = this.findCartItem(meal.id);
     if (item) {
       item.count++;
       item.amount += meal.price;
@@ -25,7 +25,7 @@ export class CartService {
     return item;
   }
 
-  findItem(id: number): CartItem {
+  findCartItem(id: number): CartItem {
     for (let i = 0; i < this.cart.items.length; i++) {
       if (this.cart.items[i].meal.id === id) {
         return this.cart.items[i];
