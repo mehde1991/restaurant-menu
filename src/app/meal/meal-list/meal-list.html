@@ -1,11 +1,17 @@
 <ul class="meal-list">
     <li *ngFor="let meal of meals" class="meal-list__item">
-        <div class="meal-list__title">{{meal.title}}</div>
-        <img class="meal-list__image" src="{{meal.image}}" alt="">
-        <div class="meal-list__bottom">
-            <div class="meal-list__price">${{meal.price}}</div>
-            <button class="meal-list__add-cart" (click)="addToCart(meal)">
-                <i class="material-icons">add_shopping_cart</i>
+        <div class="meal-list__box">
+            <div class="meal-list__head">
+                <div class="meal-list__title">{{meal.title}}</div>
+                <img class="meal-list__image" src="{{meal.image}}" alt="">
+            </div>
+            <div class="meal-list__content">
+                <div class="meal-list__description"><b>Description:</b> {{meal.description}}</div>
+                <div class="meal-list__weight"><b>Weight:</b> {{meal.weight}} g</div>
+                <div class="meal-list__price"><b>Price:</b> ${{meal.price}}</div>
+            </div>
+            <button class="meal-list__add-cart" type="button" (click)="addToCart(meal)">
+                Add to cart <i class="material-icons meal-list__icon-cart">shopping_cart</i>
             </button>
         </div>
     </li>
