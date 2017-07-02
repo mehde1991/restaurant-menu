@@ -33,8 +33,4 @@ export class CategoryListComponent implements OnInit {
         }
       )
   }
-
-  filterMeals(category: Category) {
-    this.router.navigate(['/meals'], { queryParams: { category: category.id} });
-  }
 }
