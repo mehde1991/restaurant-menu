@@ -3,7 +3,7 @@ export class Meal {
     categoryId: number;
     title: string;
     image: string;
-    weight: string;
+    weight: number;
     description: string;
     price: number;
 }

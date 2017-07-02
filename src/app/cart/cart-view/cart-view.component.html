@@ -1,30 +1,36 @@
 <div *ngIf="cart.count">
-    <div class="cart-table">
-        <div class="cart-table__head">
-            <div class="cart-table__row">
-                <div class="cart-table__item"><b>Title</b></div>
-                <div class="cart-table__item"><b>Price</b></div>
-                <div class="cart-table__item"><b>Count</b></div>
-                <div class="cart-table__item"><b>Amount</b></div>
-                <div class="cart-table__item"></div>
+    <div class="cart-box">
+        <div class="cart-table">
+            <div class="cart-table__head">
+                <div class="cart-table__row">
+                    <div class="cart-table__item cart-table__title"><b>Title</b></div>
+                    <div class="cart-table__item cart-table__num"><b>Price</b></div>
+                    <div class="cart-table__item cart-table__num"><b>Count</b></div>
+                    <div class="cart-table__item cart-table__num"><b>Amount</b></div>
+                    <div class="cart-table__item cart-table__icon"></div>
+                </div>
             </div>
-        </div>
-        <div class="cart-table__body">
-            <div *ngFor="let item of cart.items" class="cart-table__row">
-                <div class="cart-table__item">{{item.meal.title}}</div>
-                <div class="cart-table__item">{{item.meal.price | currency:'USD':true:'1.2-2'}} </div>
-                <div class="cart-table__item">{{item.count}}</div>
-                <div class="cart-table__item">{{item.amount | currency:'USD':true:'1.2-2'}}</div>
-                <div class="cart-table__item">
-                    <button class="clear-btn" type="button" (click)="removeCartItem(item)">
-                        <i class="material-icons">clear</i>
-                    </button>
+            <div class="cart-table__body">
+                <div *ngFor="let item of cart.items" class="cart-table__row">
+                    <div class="cart-table__item cart-table__title">{{item.meal.title}}</div>
+                    <div class="cart-table__item cart-table__num">{{item.meal.price | currency:'USD':true:'1.2-2'}}</div>
+                    <div class="cart-table__item cart-table__num">{{item.count}}</div>
+                    <div class="cart-table__item cart-table__num">{{item.amount | currency:'USD':true:'1.2-2'}}</div>
+                    <div class="cart-table__item cart-table__icon">
+                        <button class="cart-table__remove" type="button" (click)="removeCartItem(item)">
+                            <i class="material-icons cart-table__icon-remove">delete</i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="cart-bottom">
+            <div class="cart-total"><b>Total: </b>{{cart.amount | currency:'USD':true:'1.2-2'}}</div>
+            <button class="button button--red button--sm" type="button" (click)="clearCart()">
+                Clear cart <i class="material-icons button__icon">remove_shopping_cart</i>
+            </button>
+        </div>
     </div>
-    <div class="cart-total"><b>Total: </b>{{cart.amount | currency:'USD':true:'1.2-2'}}</div>
-    <button type="button" (click)="clearCart()">Clear cart</button>
 </div>
 <div class="empty-cart" *ngIf="!cart.count">
     <i class="material-icons empty-cart__icon">remove_shopping_cart</i>

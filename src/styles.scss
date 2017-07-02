@@ -19,3 +19,44 @@ ul {
   padding: 0;
   margin: 0;
 }
+
+.button {
+  height: 54px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 2px;
+  padding: 0 16px;
+  cursor: pointer;
+  outline: none;
+  transition: 0.2s ease-in-out;
+
+  &__icon {
+    font-size: 20px;
+    padding-left: 6px;
+  }
+
+  &--sm {
+    height: 40px;
+  }
+
+  &--green {
+    background-color: #4CAF50;
+
+    &:hover {
+      background-color: #66BB6A;
+    }
+  }
+
+  &--red {
+    background-color: #F44336;
+
+    &:hover {
+      background-color: #EF5350;
+    }
+  }
+}

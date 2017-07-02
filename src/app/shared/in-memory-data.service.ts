@@ -23,7 +23,7 @@ export class InMemoryDataService implements InMemoryDbService {
         categoryId: '1',
         title: 'Thai soup with seafood',
         image: 'http://www.h-and-h.com.ua/wp-content/uploads/2015/03/sup-tayskiy-moreprod-600x600.jpg',
-        weight: '300',
+        weight: 300,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         price: 12
       },
@@ -32,7 +32,7 @@ export class InMemoryDataService implements InMemoryDbService {
         categoryId: '1',
         title: 'Cheese soup with vegetables',
         image: 'http://www.h-and-h.com.ua/wp-content/uploads/2016/05/sup-syr-ovochi-600x600.jpg',
-        weight: '300',
+        weight: 300,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         price: 8
       },
@@ -41,7 +41,7 @@ export class InMemoryDataService implements InMemoryDbService {
         categoryId: '1',
         title: 'Ramen soup with chicken',
         image: 'http://www.h-and-h.com.ua/wp-content/uploads/2016/05/sup-ramen-kur-600x600.jpg',
-        weight: '300',
+        weight: 300,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         price: 16
       }
@@ -51,7 +51,7 @@ export class InMemoryDataService implements InMemoryDbService {
         categoryId: '1',
         title: 'Cream-soup with mushroom',
         image: 'http://www.h-and-h.com.ua/wp-content/uploads/2016/12/sup-cream-grebnoy-600x600.jpg',
-        weight: '300',
+        weight: 300,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         price: 13
       },
@@ -60,7 +60,7 @@ export class InMemoryDataService implements InMemoryDbService {
         categoryId: '2',
         title: 'Chicken burger',
         image: 'http://www.h-and-h.com.ua/wp-content/uploads/2016/05/chiken-burger-600x600.jpg',
-        weight: '350',
+        weight: 350,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         price: 12
       },
@@ -69,7 +69,7 @@ export class InMemoryDataService implements InMemoryDbService {
         categoryId: '2',
         title: 'Beef Burger',
         image: 'http://www.h-and-h.com.ua/wp-content/uploads/2016/05/DSC_7003_thumb-2-600x600.jpg',
-        weight: '350',
+        weight: 350,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         price: 14
       },
@@ -78,7 +78,7 @@ export class InMemoryDataService implements InMemoryDbService {
         categoryId: '2',
         title: 'Boiled chicken with steam rice',
         image: 'http://www.h-and-h.com.ua/wp-content/uploads/2016/11/kurka-ris-600x600.jpg',
-        weight: '350',
+        weight: 350,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         price: 10
       },
@@ -96,7 +96,7 @@ export class InMemoryDataService implements InMemoryDbService {
         categoryId: '3',
         title: 'Chocolate Brownie',
         image: 'http://www.h-and-h.com.ua/wp-content/uploads/2016/12/brauni-600x600.jpg',
-        weight: '190',
+        weight: 190,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         price: 7
       },
@@ -105,7 +105,7 @@ export class InMemoryDataService implements InMemoryDbService {
         categoryId: '3',
         title: 'Apple strudel',
         image: 'http://www.h-and-h.com.ua/wp-content/uploads/2016/12/shtrudel-yabloko-600x600.jpg',
-        weight: '190',
+        weight: 190,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         price: 6
       },
@@ -114,7 +114,7 @@ export class InMemoryDataService implements InMemoryDbService {
         categoryId: '3',
         title: 'Homemade cheesecake with raisins',
         image: 'http://www.h-and-h.com.ua/wp-content/uploads/2016/01/tvorog-chizkeyk-600x600.jpg',
-        weight: '180',
+        weight: 180,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         price: 8
       }
