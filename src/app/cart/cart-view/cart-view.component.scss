@@ -1,0 +1,44 @@
+
+.cart-table {
+  max-width: 700px;
+  margin: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .36);
+
+  &__head {
+    background-color: #f0f0f0;
+    padding: 0 8px;
+  }
+
+  &__body {
+    padding: 0 8px;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__item {
+    flex: 1;
+    padding: 8px;
+  }
+}
+
+.cart-total {
+  margin-left: 24px;
+}
+
+.clear-btn {
+  height: 24px;
+  background: none;
+  border-radius: 0;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-top: -3px;
+}
+
+.empty-cart {
+  margin: 24px;
+}

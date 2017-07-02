@@ -13,10 +13,10 @@ export class MealService {
 
     private mealsUrl = 'api/meal';
 
-    constructor(private http:Http) {
+    constructor(private http: Http) {
     }
 
-    getMeals(categoryId:number):Observable<Meal[]> {
+    getMeals(categoryId: number): Observable<Meal[]> {
         return this.http.get(this.mealsUrl)
             .map(res => {
                 return (res.json().data as Meal[])
@@ -25,7 +25,7 @@ export class MealService {
             .catch(this.handleError);
     }
 
-    private handleError(error:any):Observable<any> {
+    private handleError(error: any): Observable<any> {
         const errMsg = (error.message) ? error.message : error.status ?
             `${error.status} - ${error.statusText}` : 'Server error';
         window.alert(`An error occurred: ${errMsg}`);

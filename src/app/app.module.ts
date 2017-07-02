@@ -13,11 +13,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
  */
 import {CategoryModule} from './category/category.module';
 import {MealModule} from './meal/meal.module';
+import { CartModule } from './cart/cart.module';
 
 /**
  * Components
  */
 import {AppComponent} from './app.component';
+import {HeaderComponent} from './header/header.component';
 
 /**
  * Routing
@@ -32,7 +34,8 @@ import {InMemoryDataService} from './shared/in-memory-data.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import {InMemoryDataService} from './shared/in-memory-data.service';
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule,
     CategoryModule,
-    MealModule
+    MealModule,
+    CartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,10 @@
 <ul class="meal-list">
     <li *ngFor="let meal of meals" class="meal-list__item">
         <div class="meal-list__title">{{meal.title}}</div>
+        <img class="meal-list__image" src="{{meal.image}}" alt="">
         <div class="meal-list__bottom">
             <div class="meal-list__price">${{meal.price}}</div>
-            <button class="meal-list__add-cart">
+            <button class="meal-list__add-cart" (click)="addToCart(meal)">
                 <i class="material-icons">add_shopping_cart</i>
             </button>
         </div>

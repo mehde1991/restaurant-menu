@@ -7,6 +7,8 @@ import {CategoryListComponent} from './category-list/category-list.component';
 
 import {CategoryService} from './shared/category.service';
 
+import {CartModule} from '../cart/cart.module';
+
 @NgModule({
   declarations: [
     CategoryListComponent
@@ -14,7 +16,8 @@ import {CategoryService} from './shared/category.service';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    CartModule
   ],
   exports: [
     CategoryListComponent

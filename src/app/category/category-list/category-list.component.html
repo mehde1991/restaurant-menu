@@ -1,4 +1,7 @@
 <ul class="category-list">
+  <li class="category-list__item">
+    <a [routerLink]="['/meals']" class="category-list__link">All</a>
+  </li>
   <li *ngFor="let category of categories" class="category-list__item">
     <a class="category-list__link" (click)="filterMeals(category)">
       {{category.title}}

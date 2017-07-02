@@ -1,0 +1,29 @@
+<div *ngIf="cart.count">
+    <div class="cart-table">
+        <div class="cart-table__head">
+            <div class="cart-table__row">
+                <div class="cart-table__item"><b>Title</b></div>
+                <div class="cart-table__item"><b>Price</b></div>
+                <div class="cart-table__item"><b>Count</b></div>
+                <div class="cart-table__item"><b>Amount</b></div>
+                <div class="cart-table__item"></div>
+            </div>
+        </div>
+        <div class="cart-table__body">
+            <div *ngFor="let item of cart.items" class="cart-table__row">
+                <div class="cart-table__item">{{item.meal.title}}</div>
+                <div class="cart-table__item">{{item.meal.price | currency:'USD':true:'1.2-2'}} </div>
+                <div class="cart-table__item">{{item.count}}</div>
+                <div class="cart-table__item">{{item.amount | currency:'USD':true:'1.2-2'}}</div>
+                <div class="cart-table__item">
+                    <button class="clear-btn" type="button" (click)="removeCartItem(item)">
+                        <i class="material-icons">clear</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cart-total"><b>Total: </b>{{cart.amount | currency:'USD':true:'1.2-2'}}</div>
+    <button type="button" (click)="clearCart()">Clear cart</button>
+</div>
+<div class="empty-cart" *ngIf="!cart.count">The cart is empty!</div>
