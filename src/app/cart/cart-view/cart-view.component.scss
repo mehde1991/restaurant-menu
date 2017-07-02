@@ -40,6 +40,17 @@
 }
 
 .empty-cart {
-  font-size: 18px;
-  margin: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 300;
+  color: #9E9E9E;
+  margin: 72px 24px 24px;
+
+  &__icon {
+    font-size: 128px;
+    margin-bottom: 16px;
+  }
 }

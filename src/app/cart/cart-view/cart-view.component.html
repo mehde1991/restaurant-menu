@@ -26,4 +26,7 @@
     <div class="cart-total"><b>Total: </b>{{cart.amount | currency:'USD':true:'1.2-2'}}</div>
     <button type="button" (click)="clearCart()">Clear cart</button>
 </div>
-<div class="empty-cart" *ngIf="!cart.count">The cart is empty!</div>
+<div class="empty-cart" *ngIf="!cart.count">
+    <i class="material-icons empty-cart__icon">remove_shopping_cart</i>
+    The cart is empty!
+</div>
