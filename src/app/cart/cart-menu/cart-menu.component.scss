@@ -1,4 +1,15 @@
 
 .cart-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   color: #FFFFFF;
+  text-decoration: none;
+
+  &__icon {
+    font-size: 24px;
+    padding-right: 4px;
+    text-decoration: none;
+    margin-top: -2px;
+  }
 }
