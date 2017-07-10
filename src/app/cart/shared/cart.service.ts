@@ -25,6 +25,21 @@ export class CartService {
     return item;
   }
 
+  removeMeal(meal: Meal): CartItem {
+    let item: CartItem = this.findCartItem(meal.id);
+    if (item) {
+      item.count--;
+      item.amount -= meal.price;
+      if (!item.count) {
+        this.removeCartItem(item);
+        item = null;
+      }
+      this.cart.count--;
+      this.cart.amount -= meal.price;
+    }
+    return item;
+  }
+
   findCartItem(id: number): CartItem {
     for (let i = 0; i < this.cart.items.length; i++) {
       if (this.cart.items[i].meal.id === id) {

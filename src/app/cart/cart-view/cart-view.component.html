@@ -14,7 +14,13 @@
                 <div *ngFor="let item of cart.items" class="cart-table__row">
                     <div class="cart-table__item cart-table__title">{{item.meal.title}}</div>
                     <div class="cart-table__item cart-table__num">{{item.meal.price | currency:'USD':true:'1.2-2'}}</div>
-                    <div class="cart-table__item cart-table__num">{{item.count}}</div>
+                    <div class="cart-table__item cart-table__num">
+                        <!--<input #count class="input-count" type="number" name="{{item.meal.id}}"-->
+                               <!--[ngModel]="item.count"-->
+                               <!--(ngModelChange)="item.count = update($event, item)" (blur)="updateBlur(count.value, item)">-->
+                        <input #count class="input-count" type="number" name="{{item.meal.id}}"
+                               (blur)="update(count.value, item)" value="{{item.count}}">
+                    </div>
                     <div class="cart-table__item cart-table__num">{{item.amount | currency:'USD':true:'1.2-2'}}</div>
                     <div class="cart-table__item cart-table__icon">
                         <button class="cart-table__remove" type="button" (click)="removeCartItem(item)">
