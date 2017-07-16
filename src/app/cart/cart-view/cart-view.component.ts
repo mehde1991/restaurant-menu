@@ -27,19 +27,18 @@ export class CartViewComponent {
 
   update(value, item: CartItem) {
     let res = value - item.count;
-    if (value >= 1 && res > 0) {
+    if (res > 0) {
       for (let i = 0; i < res; i++) {
         this.cartService.addMeal(item.meal);
       }
-    } else if (value >= 1 && res < 0) {
+    } else if (res < 0) {
       for (let i = 0; i < -res; i++) {
         this.cartService.removeMeal(item.meal);
       }
-    } else if (value < 1) {
-      for (let i = 0; i < -res - 1; i++) {
-        this.cartService.removeMeal(item.meal);
-      }
-      value = 1;
+    }
+
+    if (item.count === 0) {
+      this.cartService.addMeal(item.meal);
     }
     return value;
   }
